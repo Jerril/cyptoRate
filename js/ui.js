@@ -29,18 +29,16 @@ class UI{
 
 	displayResult(result, currency){
 		// Read the currency
-		// console.log(result, currency);
-		// let currencyName = 'price_'+currency.toLowerCase();
-		let value = result.quote.currency.price;
-		// console.log(value);
-		
-		// // Remove previous results
+		console.log(result);
+		let value = result.quote[currency].price;
+
+		// Remove previous results
 		const prevResult = document.querySelector('#result > div');
 		if(prevResult){
 			prevResult.remove();
 		}
 
-		// //get the currency symbol
+		//get the currency symbol
 		let currencySymbol = '';
 
 		switch(currency){
@@ -69,9 +67,6 @@ class UI{
 				<div class="card-content white-text">
 					<span class="card-title">Result</span>
 					<p>The Price of ${result.name} from ${currency} is ${currencySymbol} ${value}</price>
-					<p>Last Hour: ${result.percent_change_1h} %</p>
-					<p>Last Day: ${result.percent_change_24h} %</p>
-					<p>Last 7 Days: ${result.percent_change_7d} %</p>
 				</div>
 			</div>
 		`;
