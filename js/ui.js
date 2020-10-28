@@ -65,7 +65,7 @@ class UI{
 			<div class="card cyan darken-3">
 				<div class="card-content white-text">
 					<span class="card-title">Result</span>
-					<p>The Price of ${result.name} from ${currency} is ${currencySymbol} ${value}</price>
+					<p>The Price of ${result.name} from ${currency} is ${currencySymbol} ${value.toFixed(2)}</price>
 				</div>
 			</div>
 		`;
