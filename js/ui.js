@@ -12,10 +12,11 @@ class UI{
 		cryptoAPI.getCryptocurrencies()
 		.then(cryptos => {
 			// Insert each item
-			cryptos.forEach(crypto => {
+			let items = cryptos.data;
+			items.forEach(item => {
 				const option = document.createElement('option');
-				option.value = crypto.id;
-				option.appendChild(document.createTextNode(crypto.name));
+				option.value = item.id;
+				option.appendChild(document.createTextNode(item.name));
 
 				// Append to the parent
 				document.getElementById('cryptocurrency').appendChild(option);
@@ -28,16 +29,18 @@ class UI{
 
 	displayResult(result, currency){
 		// Read the currency
-		let currencyName = 'price_'+currency.toLowerCase();
-		let value = result[currencyName];
-
-		// Remove previous results
+		// console.log(result, currency);
+		// let currencyName = 'price_'+currency.toLowerCase();
+		let value = result.quote.currency.price;
+		// console.log(value);
+		
+		// // Remove previous results
 		const prevResult = document.querySelector('#result > div');
 		if(prevResult){
 			prevResult.remove();
 		}
 
-		//get the currency symbol
+		// //get the currency symbol
 		let currencySymbol = '';
 
 		switch(currency){
