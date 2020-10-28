@@ -28,8 +28,7 @@ class UI{
 	}
 
 	displayResult(result, currency){
-		// Read the currency
-		console.log(result);
+		// Read the currencyS
 		let value = result.quote[currency].price;
 
 		// Remove previous results
